@@ -15,7 +15,7 @@
 ActiveRecord::Schema.define(version: 20160713154418) do
 
 ActiveRecord::Schema.define(version: 20160713153914) do
-Creates model, and migration for recipe.
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,5 +47,4 @@ Creates model, and migration for recipe.
   add_index "recipes", ["catergory_id"], name: "index_recipes_on_catergory_id", using: :btree
   add_index "recipes", ["user_id"], name: "index_recipes_on_user_id", using: :btree
 
- Creates model, and migration for recipe.
 end
