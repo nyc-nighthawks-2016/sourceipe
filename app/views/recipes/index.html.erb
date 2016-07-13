@@ -1,7 +1,11 @@
 <div id="recipes-content">
   <h1>Recently Created Recipes</h1>
+  <% if logged_in? %>
+  <h3><%= link_to 'New Recipe', new_category_recipe_path(@category), class: 'link' %></h3><br>
+  <% end %>
 
-
-
+<% @category.recipes.each do |recipe| %>
+<div class="category-recipes">
+  <span>Recipe: <%= link_to "#{recipe.name}", category_recipe_path(@category, recipe) class: 'link'%></span>
 
 </div>
