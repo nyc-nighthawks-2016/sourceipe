@@ -48,11 +48,11 @@ ActiveRecord::Schema.define(version: 20160713195212) do
   end
 
   create_table "recipes", force: :cascade do |t|
-    t.string   "name"
-    t.string   "difficulty"
-    t.integer  "prep_time"
-    t.text     "directions"
-    t.string   "author"
+    t.string   "name",         null: false
+    t.string   "difficulty",   null: false
+    t.integer  "prep_time",    null: false
+    t.text     "directions",   null: false
+    t.string   "author",       null: false
     t.integer  "user_id"
     t.integer  "catergory_id"
     t.datetime "created_at",   null: false
