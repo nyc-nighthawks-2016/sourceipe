@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
@@ -10,5 +11,8 @@ Rails.application.routes.draw do
   resources :categories
   resources :recipes
 
+
+
+  root 'home#index'
 
 end
