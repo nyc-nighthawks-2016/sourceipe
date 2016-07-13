@@ -46,7 +46,7 @@ categories.each do |category|
       directions: Faker::Lorem.paragraphs(5),
       author: Faker::Lorem.word,
       user: users.sample,
-      category: categories.sample
+      category: category
       })
   end
 end
