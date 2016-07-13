@@ -1,7 +1,7 @@
 <div class="wrapper wrapper_padding cleafix">
 
   <div class="col-2 home_content">
-    <h2>Appetizer</h2>
+    <h2></h2>
     <hr>
     <ul>
       <% @appetizers.recipes.first(5) do |recipe| %>
@@ -34,7 +34,7 @@
     <h2>Desert</h2>
     <hr>
     <ul>
-      <% @deserts.recipes.first(5) do |recipe| %>
+      <% @desserts.recipes.first(5) do |recipe| %>
         <li><%= recipe.name %></li>
       <% end %>
     </ul>
