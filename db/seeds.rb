@@ -25,3 +25,11 @@ users = []
                          email: Faker::Internet.free_email("#{first_name}.#{last_name}"),
                          password: Faker::Internet.password(8, 15)})
 end
+
+#----------------------------------------------------------------------------
+# Categories
+
+Category.create(name: "Appetizers")
+Category.create(name: "Salads")
+Category.create(name: "Entrees")
+Category.create(name: "Desserts")
