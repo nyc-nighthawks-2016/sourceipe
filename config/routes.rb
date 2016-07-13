@@ -4,13 +4,14 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
+  get '/recipes', to: 'recipes#index'
 
   resources :users
   resources :recipes, only: :index
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   resources :categories do
-    resources :recipes
+    resources :recipes, {except: :index}
   end
 
 
