@@ -10,7 +10,7 @@ class CategoryController < ApplicationController
   end
 
   def show
-    @category = Category.find_by_id params[:id]
+    @recipes =  Category.find_by_id params[:id].recipes
   end
 
 end
