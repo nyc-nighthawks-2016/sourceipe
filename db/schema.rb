@@ -11,13 +11,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160713154418) do
+ActiveRecord::Schema.define(version: 20160713195212) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "categories", force: :cascade do |t|
     t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "components", force: :cascade do |t|
+    t.string   "quantity",       null: false
+    t.integer  "ingredient_id"
+    t.integer  "measurement_id"
+    t.integer  "recipe_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "components", ["ingredient_id"], name: "index_components_on_ingredient_id", using: :btree
+  add_index "components", ["measurement_id"], name: "index_components_on_measurement_id", using: :btree
+  add_index "components", ["recipe_id"], name: "index_components_on_recipe_id", using: :btree
+
+  create_table "ingredients", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "measurements", force: :cascade do |t|
+    t.string   "unit",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
