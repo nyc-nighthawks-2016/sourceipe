@@ -1,7 +1,7 @@
 <div class="wrapper wrapper_padding cleafix">
 
   <div class="col-2 home_content">
-    <h2></h2>
+    <h2><%= link_to @appetizers.name, category_path(@appetizers)%></h2>
     <hr>
     <ul>
       <% @appetizers.recipes.first(5) do |recipe| %>
@@ -11,7 +11,7 @@
   </div>
 
   <div class="col-2 home_content">
-    <h2>Salad</h2>
+    <h2><%= link_to @salads.name, category_path(@salads)%></h2>
     <hr>
     <ul>
       <% @salads.recipes.first(5) do |recipe| %>
@@ -21,7 +21,7 @@
   </div>
 
   <div class="col-2 home_content">
-    <h2>Main Course</h2>
+    <h2><%= link_to @entrees.name, category_path(@entrees)%></h2>
     <hr>
     <ul>
       <% @entrees.recipes.first(5) do |recipe| %>
@@ -31,7 +31,7 @@
   </div>
 
   <div class="col-2 home_content">
-    <h2>Desert</h2>
+    <h2><%= link_to @desserts.name, category_path(@desserts)%></h2>
     <hr>
     <ul>
       <% @desserts.recipes.first(5) do |recipe| %>
