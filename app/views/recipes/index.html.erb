@@ -3,12 +3,13 @@
 
   <% @recipes.each do |recipe| %>
     <div class="all-recipes">
-      <p>Recipe: <%= link_to recipe.name, category_recipe_path(recipe.category, recipe) class: 'index_title'%></p>
+      <p>Recipe: <%= link_to recipe.name, category_recipe_path(recipe.category, recipe), class: 'index_title'%></p>
       <p>Posted by: <%= link_to recipe.user.username, user_path(recipe.user.id), class: 'posted_by' %></p>
       <p>Difficulty: <%=recipe.difficulty%></p>
       <p>Prep Time: <%=recipe.prep_time%></p>
       <p>Directions: <%=recipe.directions%></p>
       <p>Recipe Author: <%=recipe.author%>
     </div>
+    <span> -- || -- </span><br>
   <% end %>
 </div>
