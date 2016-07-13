@@ -1,1 +1,11 @@
-show.html.erb
+<h2><%= @user.username %>'s Profile Page</h2>
+
+<table>
+  <tr>
+    <th><%= @user.username %>'s Recipes</th>
+  </tr>
+  <% @user.recipes.each do |recipe| %>
+  <tr><%= link_to recipe.name, category_recipe_path(recipe.category, recipe) %>
+  </tr>
+  <% end %>
+</table>
