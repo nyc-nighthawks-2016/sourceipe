@@ -6,6 +6,6 @@
 
 <% @category.recipes.each do |recipe| %>
 <div class="category-recipes">
-  <span>Recipe: <%= link_to "#{recipe.name}", category_recipe_path(@category, recipe) class: 'link'%></span>
+  <span>Recipe: <%= link_to "#{recipe.name}", category_recipe_path(@category, recipe) class: 'link'%> | written by: <%=</span>
 
 </div>
