@@ -28,8 +28,26 @@ end
 
 #----------------------------------------------------------------------------
 # Categories
+categories = Category.all
+categories << Category.create(name: "Appetizers")
+categories << Category.create(name: "Salads")
+categories << Category.create(name: "Entrees")
+categories << Category.create(name: "Desserts")
 
-Category.create(name: "Appetizers")
-Category.create(name: "Salads")
-Category.create(name: "Entrees")
-Category.create(name: "Desserts")
+#----------------------------------------------------------------------------
+# Recipes
+prep_time = (1..10).to_a
+categories.each do |category|
+  10.times do
+    Recipe.create({
+      name: Faker::Lorem.word,
+      difficulty: Faker::Lorem.word,
+      prep_time: prep_time.sample,
+      directions: Faker::Lorem.paragraphs(5),
+      author: Faker::Lorem.word,
+      user: users.sample,
+      category: categories.sample
+      })
+  end
+end
+
