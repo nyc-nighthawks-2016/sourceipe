@@ -7,7 +7,7 @@ class CreateRecipes < ActiveRecord::Migration
       t.text     :directions, null: false
       t.string   :author, null: false
       t.references :user, index: true
-      t.references :catergory, index: true
+      t.references :category, index: true
 
       t.timestamps null: false
     end
