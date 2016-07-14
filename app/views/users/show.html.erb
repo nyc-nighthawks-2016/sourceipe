@@ -15,7 +15,7 @@
   </tr>
 </table>
 
-<% if @current_user %>
+<% if @current_user == @user %>
 <%= link_to "Edit Information", edit_user_path(@user) %>
 <% end %>
 <br><br>
@@ -31,6 +31,6 @@
   <% end %>
 </table>
 <br>
-<% if @current_user %>
+<% if @current_user == @user %>
 <%= link_to 'new recipe', new_recipe_path %>
 <% end %>
