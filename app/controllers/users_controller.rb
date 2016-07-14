@@ -28,13 +28,15 @@ class UsersController < ApplicationController
   end
 
   def edit
+    current_user
     @user = User.find(params[:id])
-    redirect_to root_path if @user != current_user
+    not_found if @user != @current_user
   end
 
   def update
+    current_user
     @user = User.find(params[:id])
-    redirect_to root_path if @user != current_user
+    not_found if @user != @current_user
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user, notice: "User was successfully edited." }

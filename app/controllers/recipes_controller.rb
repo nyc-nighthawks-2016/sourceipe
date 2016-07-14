@@ -29,8 +29,9 @@ class RecipesController < ApplicationController
   end
 
   def edit
-    @recipe = Recipe.find_by_id(params[:id])
-    redirect_to root_path if current_user != @recipe.user
+    current_user
+    @recipe = Recipe.find_by_id(params[:id]) 
+    not_found if @current_user != @recipe.user
     @category = @recipe.category
     @component = @recipe.components.new
 
