@@ -25,6 +25,7 @@ gem 'composite_primary_keys'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+gem 'pg_search'
 # Use Unicorn as the app server
 # gem 'unicorn'
 gem 'faker'
