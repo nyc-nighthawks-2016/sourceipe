@@ -13,6 +13,17 @@ class ComponentsController < ApplicationController
     end
     redirect_to edit_category_recipe_path(@recipe.category, @recipe)
   end
+  
+  def destroy
+    component = Component.find_by(id: params[:id])
+    current_user
+    if @current_user == component.recipe.user
+      component.destroy
+      redirect_to edit_category_recipe_path(component.recipe.category, component.recipe)
+    else
+      not_found
+    end
+  end
 
   private
 

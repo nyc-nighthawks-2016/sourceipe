@@ -3,7 +3,12 @@
 <%= render 'form' %>
 <br>
 <p>Ingredients: </p>
-<%= render 'recipe_component' %>
+<% @recipe.components.each do |component| %>
+  <% if component.valid? %>
+    <li><%= component.ingredient.name + " " + component.quantity + " " + component.measurement.unit %></li>
+      <%= link_to "Remove Ingredient", component_path(component), method: :delete %>
+  <% end %>
+<% end %>
 <%= render 'recipe_component_form', locals: { recipe: @recipe, category: @category } %>
 
 <%= link_to 'Back', category_recipe_path(@category, @recipe) %>
