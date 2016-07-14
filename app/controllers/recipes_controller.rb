@@ -2,7 +2,7 @@ class RecipesController < ApplicationController
   before_action :find_category, except: :index
 
   def index
-    @recipes = Recipe.all
+    @recipes = Recipe.order(created_at: :desc)
   end
 
   def new
@@ -29,7 +29,7 @@ class RecipesController < ApplicationController
 
   def edit
     @recipe = Recipe.find_by_id(params[:id])
-    redirect_to root if current_user != @recipe.user
+    redirect_to root_path if current_user != @recipe.user
     @category = @recipe.category
     @component = @recipe.components.new
 
