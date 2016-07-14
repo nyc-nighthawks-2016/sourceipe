@@ -1,0 +1,16 @@
+
+
+<div id="recipe_show_content" class="skinny_wrapper wrapper_padding">
+  <header>
+    <p>Posted by: <%= link_to @recipe.user.username, user_path(@recipe.user.id), class: 'posted_by' %></p>
+     <h1><%= @recipe.name %></h1>
+     <hr>
+    </header>
+    <div id="content">
+      <p>Difficulty: <%= @recipe.difficulty %></p>
+      <p>Prep Time: <%= @recipe.prep_time %></p>
+      <p>Directions: <%= @recipe.directions %></p>
+      <p>Recipe Author: <%= @recipe.author %></p>
+    </div>
+    <hr>
+</div>
