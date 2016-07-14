@@ -1,57 +1,26 @@
 <div id="recipe_show_content" class="skinny_wrapper wrapper_padding">
 
-  <% if @current_user %>
-    <%= form_for [@rating] do |f|%>
-      <p>
-        <%= f.label :Rate %><br>
-        <%= f.select :value, [1, 2, 3, 4, 5]%>
-      </p>
-        <%= f.hidden_field :recipe_id, value: @recipe.id %>
-        <%= f.hidden_field :user_id, value: @current_user.id %>
-      <p>
-        <%= f.submit %>
-      </p>
-    <% end %>
-  <% end %>
-  <%= form_for [@rating] do |f|%>
-
-      <span class="star-rating">
-        <%= radio_button_tag(:value, 1) %><i></i>
-        <input type="radio" name="rating[value]" value="2"><i></i>
-        <input type="radio" name="rating[value]" value="3"><i></i>
-        <input type="radio" name="rating[value]" value="4"><i></i>
-        <input type="radio" name="rating[value]" value="5"><i></i>
-
-      </span>
-
-
-
-
-  <% end %>
-
-    <%= radio_button_tag(:value, 1) %>
-
-    <%= radio_button_tag(:age, "adult") %>
-
-
-
   <header>
-    <p>Posted by: <%= link_to @recipe.user.username, user_path(@recipe.user.id), class: 'posted_by' %></p>
-     <h1><%= @recipe.name %></h1>
-     <hr>
-    </header>
-    <div id="content">
-      <p>Difficulty: <%= @recipe.difficulty %></p>
-      <p>Ingredients: </p>
-        <%= render 'recipe_component' %>
+   <h1><%= @recipe.name %></h1>
+   <p>Posted by: <%= link_to @recipe.user.username, user_path(@recipe.user.id), class: 'posted_by' %></p>
+  </header>
+  <% if @current_user %>
+  <%= render 'rating_form' %>
+  <% end %>
 
-      <p>Category: <%= link_to @recipe.category.name, category_path(@recipe.category)%></p>
-      <p>Prep Time: <%= @recipe.prep_time %></p>
-      <p>Directions: <%= @recipe.directions %></p>
-      <p>Recipe Author: <%= @recipe.author %></p>
-    </div>
-    <hr>
-    <% if @current_user %>
-      <%= link_to "Edit", edit_category_recipe_path(@category, @recipe) %>
-    <% end %>
+  <hr>
+  <div id="content">
+    <p>Difficulty: <%= @recipe.difficulty %></p>
+    <p>Ingredients: </p>
+      <%= render 'recipe_component' %>
+
+    <p>Category: <%= link_to @recipe.category.name, category_path(@recipe.category)%></p>
+    <p>Prep Time: <%= @recipe.prep_time %></p>
+    <p>Directions: <%= @recipe.directions %></p>
+    <p>Recipe Author: <%= @recipe.author %></p>
+  </div>
+  <hr>
+  <% if @current_user %>
+    <%= link_to "Edit", edit_category_recipe_path(@category, @recipe) %>
+  <% end %>
 </div>

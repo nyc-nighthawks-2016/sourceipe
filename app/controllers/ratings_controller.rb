@@ -9,6 +9,8 @@ class RatingsController < ApplicationController
 
     if @rating.save
       redirect_to category_recipe_path(@rating.recipe.category, @rating.recipe)
+    else
+      redirect_to category_recipe_path(@rating.recipe.category, @rating.recipe)
     end
 
   end
