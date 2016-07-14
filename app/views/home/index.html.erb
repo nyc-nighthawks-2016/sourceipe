@@ -4,8 +4,8 @@
     <h2><%= link_to @appetizers.name, category_path(@appetizers)%></h2>
     <hr>
     <ul>
-      <% @appetizers.recipes.first(5) do |recipe| %>
-        <li><%= recipe.name %></li>
+      <% @appetizers.recipes.first(5).each do |recipe| %>
+          <li> <%= link_to recipe.name, category_recipe_path(recipe.category, recipe) %>  </li>
       <% end %>
     </ul>
   </div>
@@ -14,8 +14,8 @@
     <h2><%= link_to @salads.name, category_path(@salads)%></h2>
     <hr>
     <ul>
-      <% @salads.recipes.first(5) do |recipe| %>
-        <li><%= recipe.name %></li>
+      <% @salads.recipes.first(5).each do |recipe| %>
+        <li> <%= link_to recipe.name, category_recipe_path(recipe.category, recipe) %>  </li>
       <% end %>
     </ul>
   </div>
@@ -24,8 +24,8 @@
     <h2><%= link_to @entrees.name, category_path(@entrees)%></h2>
     <hr>
     <ul>
-      <% @entrees.recipes.first(5) do |recipe| %>
-        <li><%= recipe.name %></li>
+      <% @entrees.recipes.first(5).each do |recipe| %>
+          <li> <%= link_to recipe.name, category_recipe_path(recipe.category, recipe) %>  </li>
       <% end %>
     </ul>
   </div>
@@ -34,8 +34,8 @@
     <h2><%= link_to @desserts.name, category_path(@desserts)%></h2>
     <hr>
     <ul>
-      <% @desserts.recipes.first(5) do |recipe| %>
-        <li><%= recipe.name %></li>
+      <% @desserts.recipes.first(5).each do |recipe| %>
+        <li> <%= link_to recipe.name, category_recipe_path(recipe.category, recipe) %>  </li>
       <% end %>
     </ul>
   </div>
