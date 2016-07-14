@@ -1,4 +1,7 @@
 <%= form_for [@category, @recipe] do |f|%>
+<% if flash[:notice] %>
+  <%= flash[:notice] %>
+<% else %>
   <% if @recipe.errors.any? %>
     <div id="error_explanation">
       <h2>
@@ -12,6 +15,7 @@
       </ul>
     </div>
   <% end %>
+<% end %>
 
   <p>
     <%= f.label :name %><br>
