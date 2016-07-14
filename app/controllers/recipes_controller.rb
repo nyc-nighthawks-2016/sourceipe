@@ -22,6 +22,7 @@ class RecipesController < ApplicationController
     if @recipe.save
       redirect_to category_recipe_path(@recipe.category, @recipe)
     else
+      flash[:notice] = "Looks like you've already uploaded a recipe for this category."
       render 'new'
     end
 
