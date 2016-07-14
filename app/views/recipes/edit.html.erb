@@ -11,4 +11,6 @@
 <% end %>
 <%= render 'recipe_component_form', locals: { recipe: @recipe, category: @category } %>
 
+<%= link_to 'Remove Recipe', category_recipe_path(@category, @recipe), method: :delete %>
+
 <%= link_to 'Back', category_recipe_path(@category, @recipe) %>
