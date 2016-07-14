@@ -1,5 +1,5 @@
 <div id="recipe_show_content" class="skinny_wrapper wrapper_padding">
-<<<<<<< d66462ccfbbec7e70113725f52399d1fbe2fbee4
+// Working rating form
   <% if @current_user %>
     <%= form_for [@rating] do |f|%>
       <p>
@@ -12,7 +12,8 @@
         <%= f.submit %>
       </p>
     <% end %>
-=======
+
+//In progress rating system
   <%= form_for [@rating] do |f|%>
 
       <span class="star-rating">
@@ -24,9 +25,6 @@
 
       </span>
 
-
-
->>>>>>> begins star rating butons
   <% end %>
 
     <%= radio_button_tag(:value, 1) %>
