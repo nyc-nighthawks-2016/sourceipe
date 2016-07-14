@@ -1,0 +1,9 @@
+<% @recipes.each do |recipe| %>
+  <div id="category_show_content" class="skinny_wrapper wrapper_padding">
+   <header>
+     <p class="posted_by">posted by <a class="posted_by" href="/users/<%= recipe.user.id %>"><%= recipe.user.username %></a></p>
+     <h1><a id="index_title" href="/categories/<%= recipe.category_id %>/recipes/<%= recipe.id %>"><%= recipe.name %></a></h1>
+     <hr>
+    </header>
+  </div>
+<% end %>
