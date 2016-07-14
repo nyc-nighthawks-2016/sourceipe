@@ -23,12 +23,10 @@ class Recipe < ActiveRecord::Base
     rating.round(2)
   end
 
-  def minimum_votes
-    100
-  end
-
   def weighted_ratings
     v = self.ratings.length
-    (v/(v + minimum_votes)) * self.average_rating + (minimum_votes / (v + minimum_votes)) * total_votes
+    m = vote_minimum(self.category)
+    c = self.Category.vote_mean
+    return (v / (v + m) ) * self.average_rating + (m / (v + m) ) * c
   end
 end
