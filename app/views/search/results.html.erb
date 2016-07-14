@@ -1,0 +1,19 @@
+<div>
+  <%= form_tag("/search", method: "get") do %>
+    <%= label_tag(:search, "Search for:") %>
+    <%= text_field_tag(:search) %>
+    <%= submit_tag("Search") %>
+  <% end %>
+</div>
+
+<div>
+  <% @recipes.each do |recipe| %>
+    <%= link_to recipe.name, category_recipe_path(recipe.category, recipe) %>
+  <% end %>
+</div>
+
+<div>
+  <% @ingredients.each do |ingredient| %>
+    <%= link_to ingredient.name, ingredient_path(ingredient) %>
+  <% end %>
+</div>
