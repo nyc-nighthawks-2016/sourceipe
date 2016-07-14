@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   end
 
   resources :components, only: [:create, :destroy]
-  resources :ingredients, only: [:index]
+  resources :ingredients, only: [:index, :show]
 
   root 'home#index'
 
