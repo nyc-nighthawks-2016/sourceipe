@@ -1,14 +1,16 @@
 <div id="recipe_show_content" class="skinny_wrapper wrapper_padding">
-  <%= form_for [@rating] do |f|%>
-    <p>
-      <%= f.label :Rate %><br>
-      <%= f.select :value, [1, 2, 3, 4, 5]%>
-    </p>
-      <%= f.hidden_field :recipe_id, value: @recipe.id %>
-      <%= f.hidden_field :user_id, value: @current_user.id %>
-    <p>
-      <%= f.submit %>
-    </p>
+  <% if @current_user %>
+    <%= form_for [@rating] do |f|%>
+      <p>
+        <%= f.label :Rate %><br>
+        <%= f.select :value, [1, 2, 3, 4, 5]%>
+      </p>
+        <%= f.hidden_field :recipe_id, value: @recipe.id %>
+        <%= f.hidden_field :user_id, value: @current_user.id %>
+      <p>
+        <%= f.submit %>
+      </p>
+    <% end %>
   <% end %>
 
   <header>

@@ -5,4 +5,5 @@ class Rating < ActiveRecord::Base
 
   validates :value, presence: true
   validates_uniqueness_of :user_id, :scope => :recipe_id
+  validates_inclusion_of :value, :in => 1..5
 end
