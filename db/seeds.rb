@@ -10,7 +10,7 @@
 User.delete_all
 Recipe.delete_all
 Category.delete_all
-
+Rating.delete_all
 #----------------------------------------------------------------------------
 # Users
 
@@ -28,7 +28,7 @@ end
 
 #----------------------------------------------------------------------------
 # Categories
-categories = Category.all
+categories = []
 categories << Category.create(name: "Appetizers")
 categories << Category.create(name: "Salads")
 categories << Category.create(name: "Entrees")
@@ -36,7 +36,7 @@ categories << Category.create(name: "Desserts")
 
 #----------------------------------------------------------------------------
 # Recipes
-prep_time = (1..10).to_a
+prep_time = (1..180).to_a
 categories.each do |category|
   10.times do
     Recipe.create({
@@ -50,4 +50,18 @@ categories.each do |category|
       })
   end
 end
+recipes = Recipe.all.to_a
 
+#----------------------------------------------------------------------------
+# Ratings
+ratings = []
+1000.times do
+  rating = Rating.new({
+    value: rand(1..5),
+    recipe: recipes.sample,
+    user: users.sample
+    })
+  if rating.valid?
+    rating.save
+  end
+end
