@@ -5,10 +5,6 @@ class ApplicationController < ActionController::Base
 
   before_action :is_current_user
 
-  def authorized_user?(editable)
-    current_user == editable.class.find_by(id: editable.id).user
-  end
-
   def not_found
     redirect_to '/404'
   end
