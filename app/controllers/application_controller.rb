@@ -31,8 +31,4 @@ class ApplicationController < ActionController::Base
     @current_user = current_user if logged_in?
   end
 
-  def vote_minimum(category)
-    category.vote_count * 0.2
-  end
-  
 end

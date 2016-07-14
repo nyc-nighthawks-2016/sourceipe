@@ -19,14 +19,23 @@ class Recipe < ActiveRecord::Base
   end
 
   def average_rating
-    rating = self.ratings.reduce(0) {|sum, rating| sum + rating.value} / (self.ratings.count).to_f
-    rating.round(2)
+    if self.ratings.count > 0
+      rating = self.ratings.reduce(0) {|sum, rating| sum + rating.value} / (self.ratings.count)
+    else
+      return 0
+    end
+    #rating.round(2)
   end
 
   def weighted_ratings
     v = self.ratings.length
-    m = vote_minimum(self.category)
-    c = self.Category.vote_mean
+    m = vote_minimum
+    c = self.category.vote_mean
     return (v / (v + m) ) * self.average_rating + (m / (v + m) ) * c
+
   end
+
+    def vote_minimum
+      self.category.vote_count * 0.2
+    end
 end
