@@ -19,6 +19,11 @@
   </p>
 
   <p>
+    <%= f.label :category %><br>
+    <%= f.select :category, ['Appetizers', 'Salads', 'Entrees', 'Desserts']%>
+  </p>
+
+  <p>
     <%= f.label :difficulty %><br>
     <%= f.select :difficulty, ['Beginner', 'Intermediate', 'Advanced']%>
   </p>
@@ -36,10 +41,6 @@
   <p>
     <%= f.label :author %><br>
     <%= f.text_field :author%>
-  </p>
-
-  <p>
-    <%= f.hidden_field :category_id, value: @category.id%>
   </p>
 
   <p>

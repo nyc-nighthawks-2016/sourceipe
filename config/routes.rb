@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get '/recipes', to: 'recipes#index'
 
   resources :users
-  resources :recipes, only: [:index, :new ]
+  resources :recipes, only: [:index, :new, :create ]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   resources :categories do
