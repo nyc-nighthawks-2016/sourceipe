@@ -27,10 +27,17 @@ class RecipesController < ApplicationController
 
   end
 
+  def edit
+    @recipe = Recipe.find_by_id(params[:id])
+    redirect_to root if current_user != @recipe.user
+    @category = @recipe.category
+    @component = @recipe.components.new
+
+  end
+
   private
 
   def find_category
-    # binding.pry
     @category = Category.find_by_id(params[:category_id])
   end
 
