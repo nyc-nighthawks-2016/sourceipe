@@ -1,5 +1,6 @@
-<% if @recipe.components.length > 0 %>
+
   <% @recipe.components.each do |component| %>
-    <%= component.ingredient.name | component.quantity | component.measurement.unit %>
+  <% if component.valid? %>
+    <li><%= component.ingredient.name + " " + component.quantity + " " + component.measurement.unit %></li>
   <% end %>
-<% end %>
+  <% end %>

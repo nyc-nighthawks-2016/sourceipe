@@ -1,11 +1,21 @@
-<% form_tag @component %>
-  <p>
-    <% f.label :quantity %>
-    <% f.text_field :quantity%>
-  </p>
+<%= form_for @component, method: :post do |f| %>
 
   <p>
-    <% f.hidden_field :recipe_id %>
+    <%= f.label :ingredient %><br>
+    <%= f.text_field :ingredient %>
   </p>
-
+  <p>
+    <%= f.label :quantity %><br>
+    <%= f.text_field :quantity %>
+  </p>
+  <p>
+    <%= f.label :measurement %><br>
+    <%= f.text_field :measurement %>
+  </p>
+  <p>
+    <%= f.hidden_field(:recipe_id, value: @recipe.id) %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
 <% end %>
