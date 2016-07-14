@@ -28,6 +28,7 @@ end
 
 #----------------------------------------------------------------------------
 # Categories
+
 categories = []
 categories << Category.create(name: "Appetizers")
 categories << Category.create(name: "Salads")
@@ -36,6 +37,7 @@ categories << Category.create(name: "Desserts")
 
 #----------------------------------------------------------------------------
 # Recipes
+
 prep_time = (1..180).to_a
 categories.each do |category|
   10.times do
@@ -54,6 +56,7 @@ recipes = Recipe.all.to_a
 
 #----------------------------------------------------------------------------
 # Ratings
+
 ratings = []
 1000.times do
   rating = Rating.new({
@@ -65,3 +68,15 @@ ratings = []
     rating.save
   end
 end
+
+#----------------------------------------------------------------------------
+# Components
+
+
+
+#----------------------------------------------------------------------------
+# Measurements
+
+
+#----------------------------------------------------------------------------
+# Ingredients
