@@ -14,9 +14,8 @@ Rails.application.routes.draw do
     resources :recipes, {except: :index}
   end
 
-  resources :components
-  resources :measurements
-  resources :ingredients
+  resources :components, only: [:create]
+  resources :ingredients, only: [:index]
 
   root 'home#index'
 

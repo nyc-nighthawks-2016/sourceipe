@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
 
   before_action :is_current_user
 
+  def not_found
+    redirect_to '/404'
+  end
+
   def log_in(user)
     session[:user_id] = user.id
   end

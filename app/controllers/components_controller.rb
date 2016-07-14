@@ -1,8 +1,10 @@
 class ComponentsController < ApplicationController
   def create
+    @recipe = Recipe.find_by_id(component_params[:recipe_id])
+    current_user
+    not_found if @current_user != @recipe.user
     @ingredient = Ingredient.find_or_create_by(name: component_params[:ingredient])
     @measurement = Measurement.find_or_create_by(unit: component_params[:measurement])
-    @recipe = Recipe.find_by_id(component_params[:recipe_id])
     @component = Component.new(ingredient: @ingredient, measurement: @measurement, recipe: @recipe, quantity: component_params[:quantity])
     if @component.save
       flash[:notice] = "Component Added"

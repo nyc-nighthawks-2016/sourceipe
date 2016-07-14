@@ -82,4 +82,4 @@ production:
   <<: *default
   database: sourceipe_production
   username: sourceipe
-  password: <%= ENV['SOURCEIPE_DATABASE_PASSWORD'] %>
+  password: 'password'
