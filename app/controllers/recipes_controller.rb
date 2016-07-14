@@ -11,6 +11,7 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find(params[:id])
+    @component = Component.new
   end
 
   def create
