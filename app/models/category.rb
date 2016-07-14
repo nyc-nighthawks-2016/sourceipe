@@ -29,10 +29,6 @@ class Category < ActiveRecord::Base
     merge_sort(self.recipes).last(5)
   end
 
-  def vote_count
-    self.recipes.reduce(0) {|sum, rating| sum + recipe.ratings.count}
-  end
-
   def vote_mean
     vote_count/2
   end

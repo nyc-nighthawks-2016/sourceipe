@@ -12,7 +12,6 @@
         <%= f.submit %>
       </p>
     <% end %>
-  <% end %>
 
   <%= form_for [@rating] do |f|%>
 
@@ -22,10 +21,19 @@
         <input type="radio" name="rating[value]" value="3"><i></i>
         <input type="radio" name="rating[value]" value="4"><i></i>
         <input type="radio" name="rating[value]" value="5"><i></i>
-        <strong class="choice">Choose a rating</strong>
+
       </span>
 
+
+
+
   <% end %>
+
+    <%= radio_button_tag(:value, 1) %>
+
+    <%= radio_button_tag(:age, "adult") %>
+
+
 
   <header>
     <p>Posted by: <%= link_to @recipe.user.username, user_path(@recipe.user.id), class: 'posted_by' %></p>
