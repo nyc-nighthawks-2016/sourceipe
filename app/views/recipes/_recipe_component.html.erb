@@ -1,0 +1,5 @@
+<% if @recipe.components.length > 0 %>
+  <% @recipe.components.each do |component| %>
+    <%= component.ingredient.name | component.quantity | component.measurement.unit %>
+  <% end %>
+<% end %>
