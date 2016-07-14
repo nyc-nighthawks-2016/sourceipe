@@ -10,7 +10,7 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @recipe = Category.find(params[:category_id])
+    @recipe = Recipe.find(params[:category_id])
   end
 
   def create
