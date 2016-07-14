@@ -39,14 +39,15 @@ categories << Category.create(name: "Desserts")
 # Recipes
 
 prep_time = (1..180).to_a
+difficulty = ["Beginner", "Intermediate", "Advanced"]
 categories.each do |category|
   10.times do
     Recipe.create({
-      name: Faker::Lorem.word,
-      difficulty: Faker::Lorem.word,
+      name: Faker::Name.title,
+      difficulty: difficulty.sample,
       prep_time: prep_time.sample,
-      directions: Faker::Lorem.paragraphs(5),
-      author: Faker::Lorem.word,
+      directions: Faker::Hipster.paragraphs(5),
+      author: Faker::App.author,
       user: users.sample,
       category: category
       })
@@ -70,13 +71,38 @@ ratings = []
 end
 
 #----------------------------------------------------------------------------
-# Components
-
-
-
-#----------------------------------------------------------------------------
 # Measurements
+measurements = []
+measurement_items = ["teaspoon", "teaspoons", "Tablespoon", "Tablespoons", "dash", "pinch", "cup", "Pound", "ounces", "Pint", "Quart", "Gallon", "Pints", "Cups", "Quarts", "fluid oz.", "oz.", "bag", "bags", "batch", "batches", "bottle", "bottles", "box", "bunch", "bunches", "bundle", "can", "cans", "clove", "cloves", "cube", "dashes", "drops", "ear", "ears", "envelope", "envelopes", "g", "grams", "handful", "head", "heads", "hearts", "jar", "kg", 'l', "links", "liter", "liters", "loaf", "loaves", "logs", "milliliters", "ounce", "package", "packet", "packets", "piece", "pieces", "pinches", "pounds", "recipes", "rib", "ribs", "rounds", "scoops", "scoop", "sheet", "sheets", "slice", "slices", "splash", "sprig", "sprigs", "stick", "stalks", "stick", "sticks", "strips", "wedges"]
 
+measurement_items.each do |item|
+  measurements << Measurement.create!({
+        unit: item
+    })
+end
 
 #----------------------------------------------------------------------------
 # Ingredients
+
+ingredients = []
+ingredient_items = ["apple", "avocado", "bacon", "banana", "beef", "berry", "carrots", "cauliflower", "cheese", "chicken", "chocolate", "citrus", "coffee", "eggs", "fish", "fruit", "game", "grape", "ham", "lamb", "leafy green", "lemon", "mint", "mushroom", "nut", "orange", "pear", "pepper", "salt", "potato", "poultry", "rice", "rosemary", "sausage", "shellfish", "squash", "thyme", "tofu", "rice", "tomato", "turkey", "vegetable", "watermelon", "yogurt", "milk", "flour", "baking soda", "baking powder", "sugar", "oregano", "tumeric", "ginger", "onion", "yeast"]
+
+ingredient_items.each do |item|
+  ingredients << Ingredient.create!({
+        name: item
+    })
+end
+
+#----------------------------------------------------------------------------
+# Components
+
+components = []
+1000.times do
+  components << Component.create!({
+    quantity: rand(1..10),
+    ingredient: ingredients.sample,
+    measurement: measurements.sample,
+    recipe: recipes.sample
+    })
+
+end
