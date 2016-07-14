@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   get '/recipes', to: 'recipes#index'
 
+  resources :ratings, only: [:create]
   resources :users
   resources :recipes, only: [:index, :new, :create ]
   # The priority is based upon order of creation: first created -> highest priority.
