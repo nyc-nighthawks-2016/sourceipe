@@ -18,4 +18,17 @@ class Recipe < ActiveRecord::Base
     find_each { |record| record.update_pg_search_document }
   end
 
+  def average_rating
+    rating = self.ratings.reduce(0) {|sum, rating| sum + rating.value} / (self.ratings.count).to_f
+    rating.round(2)
+  end
+
+  def minimum_votes
+    100
+  end
+
+  def weighted_ratings
+    v = self.ratings.length
+    (v/(v + minimum_votes)) * self.average_rating + (minimum_votes / (v + minimum_votes)) * total_votes
+  end
 end

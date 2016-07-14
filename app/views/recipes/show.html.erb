@@ -1,5 +1,5 @@
 <div id="recipe_show_content" class="skinny_wrapper wrapper_padding">
-// Working rating form
+
   <% if @current_user %>
     <%= form_for [@rating] do |f|%>
       <p>
@@ -12,8 +12,8 @@
         <%= f.submit %>
       </p>
     <% end %>
+  <% end %>
 
-//In progress rating system
   <%= form_for [@rating] do |f|%>
 
       <span class="star-rating">
@@ -22,16 +22,10 @@
         <input type="radio" name="rating[value]" value="3"><i></i>
         <input type="radio" name="rating[value]" value="4"><i></i>
         <input type="radio" name="rating[value]" value="5"><i></i>
-
+        <strong class="choice">Choose a rating</strong>
       </span>
 
   <% end %>
-
-    <%= radio_button_tag(:value, 1) %>
->
-    <%= radio_button_tag(:age, "adult") %>
-
-
 
   <header>
     <p>Posted by: <%= link_to @recipe.user.username, user_path(@recipe.user.id), class: 'posted_by' %></p>
