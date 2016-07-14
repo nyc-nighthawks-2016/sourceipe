@@ -29,12 +29,12 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
-    redirect_to root if @user != current_user
+    redirect_to root_path if @user != current_user
   end
 
   def update
     @user = User.find(params[:id])
-    redirect_to root if @user != current_user
+    redirect_to root_path if @user != current_user
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user, notice: "User was successfully edited." }

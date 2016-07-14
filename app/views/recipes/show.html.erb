@@ -15,5 +15,7 @@
       <p>Recipe Author: <%= @recipe.author %></p>
     </div>
     <hr>
-  <%= link_to "Edit", edit_category_recipe_path(@category, @recipe) %>
+    <% if @current_user %>
+      <%= link_to "Edit", edit_category_recipe_path(@category, @recipe) %>
+    <% end %>
 </div>

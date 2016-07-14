@@ -14,15 +14,23 @@
     <td><%= @user.email %></td>
   </tr>
 </table>
+
+<% if @current_user %>
 <%= link_to "Edit Information", edit_user_path(@user) %>
+<% end %>
+<br><br>
+
 <table>
   <tr>
     <th><%= @user.username %>'s Recipes</th>
   </tr>
   <% @user.recipes.each do |recipe| %>
-  <tr><%= link_to recipe.name, category_recipe_path(recipe.category, recipe) %>
+  <tr>
+    <td><%= link_to recipe.name, category_recipe_path(recipe.category, recipe) %></td>
   </tr>
   <% end %>
 </table>
 <br>
+<% if @current_user %>
 <%= link_to 'new recipe', new_recipe_path %>
+<% end %>
