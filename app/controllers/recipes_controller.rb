@@ -12,6 +12,7 @@ class RecipesController < ApplicationController
   def show
     @recipe = Recipe.find(params[:id])
     @component = Component.new
+    @rating = Rating.new
   end
 
   def create
@@ -30,7 +31,7 @@ class RecipesController < ApplicationController
 
   def edit
     current_user
-    @recipe = Recipe.find_by_id(params[:id]) 
+    @recipe = Recipe.find_by_id(params[:id])
     not_found if @current_user != @recipe.user
     @category = @recipe.category
     @component = @recipe.components.new
