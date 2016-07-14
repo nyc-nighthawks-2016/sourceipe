@@ -47,8 +47,6 @@ ActiveRecord::Schema.define(version: 20160714155609) do
     t.datetime "updated_at", null: false
   end
 
-<<<<<<< HEAD
-=======
   create_table "pg_search_documents", force: :cascade do |t|
     t.text     "content"
     t.integer  "searchable_id"
@@ -59,7 +57,6 @@ ActiveRecord::Schema.define(version: 20160714155609) do
 
   add_index "pg_search_documents", ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id", using: :btree
 
->>>>>>> search
   create_table "ratings", force: :cascade do |t|
     t.integer  "value",      null: false
     t.integer  "recipe_id"
