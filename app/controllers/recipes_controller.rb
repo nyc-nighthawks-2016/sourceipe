@@ -37,7 +37,17 @@ class RecipesController < ApplicationController
     @component = @recipe.components.new
 
   end
-
+  
+  def destroy
+    current_user
+    @recipe = Recipe.find_by_id(params[:id])
+    if @current_user == @recipe.user
+      @recipe.destroy
+      redirect_to user_path(@current_user)
+    else
+      not_found
+    end
+  end
   private
 
   def find_category
