@@ -6,12 +6,14 @@
   <% end %>
 </div>
 
+<h5>Recipes</h5>
 <div>
   <% @recipes.each do |recipe| %>
     <%= link_to recipe.name, category_recipe_path(recipe.category, recipe) %>
   <% end %>
 </div>
 
+<h5>Ingredients</h5>
 <div>
   <% @ingredients.each do |ingredient| %>
     <%= link_to ingredient.name, ingredient_path(ingredient) %>
