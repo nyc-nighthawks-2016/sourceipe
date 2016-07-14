@@ -7,22 +7,22 @@ class Search
 
     @recipes = []
     @ingredients = []
-    recipes = PgSearch.multisearch(args).where(:searchable_type => "Recipe")
-    ingredients = PgSearch.multisearch(args).where(:searchable_type => "Ingredient")
+    recipes_results = PgSearch.multisearch(args).where(:searchable_type => "Recipe")
+    ingredients_results = PgSearch.multisearch(args).where(:searchable_type => "Ingredient")
 
-    recipes.each do |recipe|
+    recipes_results.each do |recipe|
       @recipes << Recipe.find_by(id: recipe.searchable_id)
     end
 
-    ingredients.each do |ingredient|
+    ingredients_results.each do |ingredient|
       @ingredients << Ingredient.find_by(id: ingredient.searchable_id)
     end
-    binding.pry
-    # self.recipes
-    # self.ingredients
+
+    self.recipe_single_term
+    self.ingredient_single_term
   end
 
-  def recipes
+  def recipe_single_term
     @search_terms.each do |term|
       recipes = PgSearch.multisearch(term).where(:searchable_type => "Recipe")
       recipes.each do |recipe|
@@ -31,7 +31,7 @@ class Search
     end
   end
 
-  def ingredients
+  def ingredient_single_term
     @search_terms.each do |term|
       ingredients = PgSearch.multisearch(term).where(:searchable_type => "Ingredient")
       ingredients.each do |ingredient|
