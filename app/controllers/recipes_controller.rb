@@ -12,10 +12,12 @@ class RecipesController < ApplicationController
   def show
     @recipe = Recipe.find(params[:id])
     @component = Component.new
-    if !Rating.find_by(user: current_user, recipe: @recipe)
-      @rating = current_user.ratings.new
-    else
-      @rating = Rating.find_by(user: current_user, recipe: @recipe)
+    if @current_user
+      if !Rating.find_by(user: current_user, recipe: @recipe)
+        @rating = current_user.ratings.new
+      else
+        @rating = Rating.find_by(user: current_user, recipe: @recipe)
+      end
     end
   end
 

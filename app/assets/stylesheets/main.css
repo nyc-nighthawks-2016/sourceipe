@@ -100,7 +100,7 @@ nav {
 	padding-top: 1.5rem;
 }
 
-.home_content{
+.home_content-app{
 	display: inline-block;
 	border: 2px #E9E9E9 solid;
 	width: 30%;
@@ -109,6 +109,44 @@ nav {
 	text-transform: uppercase;
 	font-size: 1.1rem;
 	margin: 10px 10px 10px 10px;
+	padding-right: 35px;
+
+}
+
+.home_content-salad{
+	display: inline-block;
+	border: 2px #E9E9E9 solid;
+	width: 30%;
+	height: 30%;
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 1.1rem;
+	margin: 10px 10px 10px 10px;
+	padding-right: 35px;
+}
+
+.home_content-entree{
+	display: inline-block;
+	border: 2px #E9E9E9 solid;
+	width: 30%;
+	height: 30%;
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 1.1rem;
+	margin: 10px 10px 10px 10px;
+	padding-right: 35px;
+}
+
+.home_content-dessert{
+	display: inline-block;
+	border: 2px #E9E9E9 solid;
+	width: 30%;
+	height: 30%;
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 1.1rem;
+	margin: 10px 10px 10px 10px;
+	padding-right: 35px;
 }
 
 #form {

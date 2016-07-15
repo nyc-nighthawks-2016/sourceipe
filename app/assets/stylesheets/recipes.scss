@@ -1,3 +1,39 @@
 // Place all the styles related to the Recipes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#main-recipe-content {
+  width: 35%;
+  position: inline-block;
+  float: left;
+}
+
+#directions-content {
+  margin-top: 132px;
+  width: 55%;
+  position: inline-block;
+  float: right;
+  font-size: 1.0em;
+}
+
+#prep-time, #difficulty, #single-ingredient, #recipe-directions, #poster, #author {
+  font-size: 1.0em;
+}
+
+.all-recipes {
+  border: 2px #E9E9E9 solid;
+  padding: 5px;
+  width: 100%;
+}
+
+#main-recipe-info {
+  width: 20%;
+
+
+}
+
+#directions {
+  width: 70%;
+  float: right;
+
+}
