@@ -5,14 +5,17 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find_by(id: params[:id])
+    not_found if !@user
   end
 
   def new
+    redirect_to current_user if logged_in?
     @user = User.new
   end
 
   def create
+    redirect_to current_user
     @user = User.new(user_params)
 
     respond_to do |format|
