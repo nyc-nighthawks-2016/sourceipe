@@ -8,6 +8,7 @@
    <p id="author"><%= @recipe.author %></p><br>
    <p>Posted to the <%= link_to @recipe.category.name, category_path(@recipe.category)%> Category</p>
   </header>
+
   <% if @current_user %>
     <% if @rating.value %>
 
@@ -15,6 +16,7 @@
     <%= render 'rating_form' %>
     <% end %>
   <% end %>
+
   <h6> Currently Rated at
     <% if @recipe.ratings.length > 0 %>
     <%= @recipe.converted_rating %>
@@ -32,7 +34,7 @@
   </div>
   <div id="directions-content">
     <p>Directions: </p>
-    <p id="recipe-directions"><%= @recipe.directions[1..-2] %></p>
+    <p id="recipe-directions"><%= @recipe.directions %></p>
   </div>
 
 
