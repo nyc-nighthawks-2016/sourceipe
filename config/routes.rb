@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get '/recipes', to: 'recipes#index'
   get '/search', to: 'search#query'
 
-  resources :ratings, only: :create
+  resources :ratings, only: [:create, :new]
   resources :users
   resources :recipes, only: [:index, :new, :create ]
   # The priority is based upon order of creation: first created -> highest priority.

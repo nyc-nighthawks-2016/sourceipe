@@ -7,8 +7,10 @@ class RatingsController < ApplicationController
   def create
     @rating = Rating.new(rating_params)
     if @rating.save
+      flash[:notice] = "Your rating was added."
       redirect_to category_recipe_path(@rating.recipe.category, @rating.recipe)
     else
+      flash[:notice] = "You've already created a rating."
       redirect_to category_recipe_path(@rating.recipe.category, @rating.recipe)
     end
   end

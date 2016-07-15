@@ -20,16 +20,26 @@
 <% end %>
 <br><br>
 
-<table>
-  <tr>
-    <th><%= @user.username %>'s Recipes</th>
-  </tr>
-  <% @user.recipes.each do |recipe| %>
-  <tr>
-    <td> <%= link_to recipe.name, category_recipe_path(recipe.category, recipe) %> </td>
-  </tr>
-  <% end %>
-</table>
+
+<h2> Recipes Created </h2>
+<% @user.recipes.each do |recipe| %>
+  <div class="all-recipes">
+    <p><%= recipe.category.name %></p>
+    <p><%= link_to recipe.name, category_recipe_path(recipe.category, recipe) %></p>
+    <p>Posted <%= time_since_creation(recipe)%> by: </p>
+    <p id="poster"><%= link_to recipe.user.username, user_path(recipe.user.id), class: 'posted_by' %></p><br>
+    <p>Recipe Author: </p>
+    <p id="author"><%=recipe.author%></p>
+    <h6> Currently Rated at <%= recipe.converted_rating %> stars</h6>
+  </div>
+  <br>
+<% end %>
+
+<h2> Ratings Created </h2>
+
+<% @user.ratings.each do |rating| %>
+<p><%= link_to rating.recipe.name, category_recipe_path(rating.recipe.category, rating.recipe) %></p>
+<% end %>
 <br>
 <% if @current_user == @user %>
 <%= link_to 'new recipe', new_recipe_path %>

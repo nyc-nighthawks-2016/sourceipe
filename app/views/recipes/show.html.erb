@@ -1,5 +1,9 @@
 <div id="recipe_show_content" class="skinny_wrapper wrapper_padding">
 
+  <% if flash[:notice] %>
+    <%= flash[:notice] %>
+  <% end %>
+
   <header>
    <h1><%= @recipe.name %></h1>
    <p>Posted <%= time_since_creation(@recipe)%> by: </p>
@@ -10,11 +14,7 @@
   </header>
 
   <% if @current_user %>
-    <% if @rating.value %>
-
-    <% else %>
-    <%= render 'rating_form' %>
-    <% end %>
+    <%= render 'rating_form1' %>
   <% end %>
 
   <h6> Currently Rated at
@@ -25,6 +25,9 @@
     <% end %> stars</h6>
 
   <div id="main-recipe-content">
+    <p><% if @current_user && @current_user.id == @recipe.user.id %>
+      <%= link_to "Edit Recipe", edit_category_recipe_path(@category, @recipe) %>
+    <% end %></p><br>
     <p>Difficulty: </p>
     <p id="difficulty"><%= @recipe.difficulty %></p><br>
     <p>Prep Time: </p>
@@ -32,13 +35,12 @@
     <p>Ingredients: </p>
     <%= render 'recipe_component' %>
   </div>
+
   <div id="directions-content">
     <p>Directions: </p>
-    <p id="recipe-directions"><%= @recipe.directions %></p>
+    <p id="recipe-directions">
+      <%= @recipe.directions %>
+    </p>
   </div>
 
-
-  <% if @current_user %>
-    <%= link_to "Edit", edit_category_recipe_path(@category, @recipe) %>
-  <% end %>
 </div>

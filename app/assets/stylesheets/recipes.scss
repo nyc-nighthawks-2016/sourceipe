@@ -6,6 +6,7 @@
   width: 35%;
   position: inline-block;
   float: left;
+  padding-bottom: 50px;
 }
 
 #directions-content {
@@ -14,6 +15,8 @@
   position: inline-block;
   float: right;
   font-size: 1.0em;
+  word-wrap: break-word;
+  padding-bottom: 50px;
 }
 
 #prep-time, #difficulty, #single-ingredient, #recipe-directions, #poster, #author {
@@ -35,5 +38,5 @@
 #directions {
   width: 50%;
   display: inline-block;
-
 }
+
