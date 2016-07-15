@@ -4,8 +4,6 @@ class Ingredient < ActiveRecord::Base
 
   validates :name, presence: true
 
-
-
   include PgSearch
   multisearchable :against => [:name]
 
