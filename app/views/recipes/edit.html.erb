@@ -1,11 +1,11 @@
-<h1>Edit</h1>
+<h1 id="styled-heading">Edit</h1>
 
 <%= render 'form' %>
 <br>
-<p>Ingredients: </p>
+<h3 id="styled-heading">Ingredients: </h3>
 <% @recipe.components.each do |component| %>
   <% if component.valid? %>
-    <li><%= component.ingredient.name + " " + component.quantity + " " + component.measurement.unit %></li>
+    <li id="styled-heading"><%= component.ingredient.name + " " + component.quantity + " " + component.measurement.unit %></li>
       <%= link_to "Remove Ingredient", component_path(component), method: :delete %>
   <% end %>
 <% end %>

@@ -2,19 +2,7 @@ class Ingredient < ActiveRecord::Base
   has_many :components
   has_many :recipes, through: :components
 
-
   validates :name, presence: true
-
-  validates :name, format: { with: /\A[a-zA-Z]+\z/,
-    message: "only allows letters" }
-
-  validates :name, presence: true
-  #validates :name, format: { with: /\A[a-zA-Z]+\z/,
-  #  message: "only allows letters" }
-
-  validates :name, presence: true
-
-
 
   include PgSearch
   multisearchable :against => [:name]

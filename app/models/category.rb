@@ -1,7 +1,6 @@
 class Category < ActiveRecord::Base
   has_many :recipes
 
-
   def merge_sort(list)
     if list.length <= 1
       list
@@ -32,7 +31,7 @@ class Category < ActiveRecord::Base
   def vote_count
     self.recipes.reduce(0) {|sum, recipe| sum + recipe.ratings.length}
   end
-  
+
   def vote_mean
     vote_count/2
   end

@@ -38,4 +38,16 @@
 #directions {
   width: 50%;
   display: inline-block;
+
+}
+
+#directions:p {
+ vertical-align: top;
+  font-family: 'Raleway';
+  width: 50%;
+  position: inline-block;
+  float: right;
+  font-size: 1.0em;
+  word-wrap: break-word;
+  padding-bottom: 50px;
 }
