@@ -10,12 +10,17 @@
   </header>
   <% if @current_user %>
     <% if @rating.value %>
-    <%= render 'rating_form' %>
+
     <% else %>
     <%= render 'rating_form' %>
     <% end %>
   <% end %>
-  <h6> Currently Rated at <%= @recipe.weighted_ratings %> stars</h6>
+  <h6> Currently Rated at
+    <% if @recipe.ratings.length > 0 %>
+    <%= @recipe.converted_rating %>
+    <% else %>
+    <%= @recipe.average_rating %>
+    <% end %> stars</h6>
 
   <div id="main-recipe-content">
     <p>Difficulty: </p>

@@ -6,6 +6,7 @@ class RecipesController < ApplicationController
   end
 
   def new
+    redirect_to '/login' if !logged_in?
     @recipe = Recipe.new
   end
 
@@ -41,7 +42,18 @@ class RecipesController < ApplicationController
     not_found if @current_user != @recipe.user
     @category = @recipe.category
     @component = @recipe.components.new
+  end
 
+  def update
+    current_user
+    @recipe = Recipe.find_by(id: params[:id])
+    not_found if @current_user != @recipe.user
+    if @recipe.update(recipe_params)
+      redirect_to category_recipe_path(@recipe.category, @recipe)
+    else
+      @component = @recipe.components.new
+      render 'edit'
+    end
   end
 
   def destroy

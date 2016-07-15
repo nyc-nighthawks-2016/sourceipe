@@ -7,8 +7,8 @@ class Recipe < ActiveRecord::Base
   has_many :ingredients, through: :components
   has_many :measurements, through: :components
 
-  validates :name, :difficulty, :prep_time, :directions, :author, presence: true
-
+  validates :name, :difficulty, :directions, :author, presence: true
+  validates_inclusion_of :prep_time, :in => 1..1000
   validates_uniqueness_of :user_id, :scope => :category_id
 
   include PgSearch
@@ -32,7 +32,10 @@ class Recipe < ActiveRecord::Base
     m = vote_minimum
     c = self.category.vote_mean
     weighted = (v / (v + m) ) * self.average_rating + (m / (v + m) ) * c
-    return ((weighted * 5) / 100).round(2)
+  end
+
+  def converted_rating
+    return ((self.weighted_ratings * 5) / 100).round(2)
   end
 
     def vote_minimum

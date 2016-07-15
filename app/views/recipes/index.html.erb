@@ -4,21 +4,22 @@
   <% @recipes.each do |recipe| %>
     <div class="all-recipes">
       <p>Recipe: <%= link_to recipe.name, category_recipe_path(recipe.category, recipe), class: 'index_title'%></p><br>
-      <aside id="main-recipe-info"
+      <div id="main-recipe-info"
         <p>Posted <%= time_since_creation(recipe)%> by: </p>
         <p id="poster"><%= link_to recipe.user.username, user_path(recipe.user.id), class: 'posted_by' %></p><br>
         <p>Recipe Author: </p>
         <p id="author"><%=recipe.author%></p><br>
+        <h6> Currently Rated at <%= recipe.converted_rating %> stars</h6>
         <p>Difficulty: </p>
         <p id="difficulty"><%=recipe.difficulty%></p><br>
         <p>Prep Time: </p>
         <p id="prep-time"><%=recipe.prep_time%></p><br>
-      </aside>
+      </div>
 
-      <aside id="directions">
+      <div id="directions">
         <p>Directions: </p><br>
         <p id="recipe-directions"><%=recipe.directions[1..-20]%>...</p>
-      </aside>
+      </div>
     </div>
     <br><br>
   <% end %>
