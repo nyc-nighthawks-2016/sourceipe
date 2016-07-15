@@ -5,13 +5,19 @@ class ComponentsController < ApplicationController
     not_found if @current_user != @recipe.user
     @ingredient = Ingredient.find_or_create_by(name: component_params[:ingredient])
     @measurement = Measurement.find_or_create_by(unit: component_params[:measurement])
-    @component = Component.new(ingredient: @ingredient, measurement: @measurement, recipe: @recipe, quantity: component_params[:quantity])
-    if @component.save
-      flash[:notice] = "Component Added"
+
+    if @ingredient.save! && @measurement.save!
+      @component = Component.new(ingredient: @ingredient, measurement: @measurement, recipe: @recipe, quantity: component_params[:quantity])
+      if @component.save
+        flash[:notice] = "Component Added"
+      else
+        flash[:notice] = "Invalid Component"
+      end
     else
-      flash[:notice] = "Invalid Component"
+      flash[:notice] = "Invalid Ingredient"
     end
     redirect_to edit_category_recipe_path(@recipe.category, @recipe)
+
   end
 
   def destroy

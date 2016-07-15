@@ -4,5 +4,6 @@ class Component < ActiveRecord::Base
   belongs_to :recipe
 
   validates :quantity, presence: true
+  validates :ingredient, presence: true
 
 end
