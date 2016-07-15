@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    redirect_to current_user
+    redirect_to current_user if logged_in?
     @user = User.new(user_params)
 
     respond_to do |format|

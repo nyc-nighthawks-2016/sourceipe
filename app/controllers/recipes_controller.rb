@@ -42,6 +42,7 @@ class RecipesController < ApplicationController
     not_found if @current_user != @recipe.user
     @category = @recipe.category
     @component = @recipe.components.new
+    @measurements = Measurement.all
   end
 
   def update
