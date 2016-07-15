@@ -35,7 +35,12 @@ class Recipe < ActiveRecord::Base
   end
 
   def converted_rating
-    return ((self.weighted_ratings * 5) / 100).round(2)
+    rating = ((self.weighted_ratings * 5) / 100).round(2)
+    if rating > 5
+      rating.round
+    else
+      rating
+    end
   end
 
     def vote_minimum

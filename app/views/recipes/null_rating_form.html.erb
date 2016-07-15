@@ -1,6 +1,6 @@
 <span class="star-rating">
 
-  <%= form_for @rating, method: :post, :html => { id: "rating-form" }  do |f| %>
+  <%= form_for ratings_path, method: :post, :html => { id: "rating-form" }  do |f| %>
     <%= f.submit name: "value", value: "1" %><i></i>
     <%= f.submit name: "value", value: "2" %><i></i>
     <%= f.submit name: "value", value: "3" %><i></i>

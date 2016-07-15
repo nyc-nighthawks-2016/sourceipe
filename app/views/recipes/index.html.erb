@@ -4,7 +4,7 @@
   <% @recipes.each do |recipe| %>
     <div class="all-recipes">
       <p>Recipe: <%= link_to recipe.name, category_recipe_path(recipe.category, recipe), class: 'index_title'%></p><br>
-      <div id="main-recipe-info"
+      <div id="main-recipe-info">
         <p>Posted <%= time_since_creation(recipe)%> by: </p>
         <p id="poster"><%= link_to recipe.user.username, user_path(recipe.user.id), class: 'posted_by' %></p><br>
         <p>Recipe Author: </p>
@@ -13,7 +13,7 @@
         <p>Difficulty: </p>
         <p id="difficulty"><%=recipe.difficulty%></p><br>
         <p>Prep Time: </p>
-        <p id="prep-time"><%=recipe.prep_time%></p><br>
+        <p id="prep-time"><%=recipe.prep_time%> minutes</p><br>
       </div>
 
       <div id="directions">

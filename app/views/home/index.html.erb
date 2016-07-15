@@ -14,6 +14,7 @@
       <% @appetizers.each do |recipe| %>
           <h6> <%= link_to recipe.name, category_recipe_path(recipe.category, recipe) %>  </h6>
           <h6> <%= recipe.converted_rating %> stars rating </h6>
+          <p> ---||--- </p>
       <% end %>
     </ul>
   </div>
@@ -24,6 +25,7 @@
       <% @salads.each do |recipe| %>
           <h6> <%= link_to recipe.name, category_recipe_path(recipe.category, recipe) %>  </h6>
           <h6> <%= recipe.converted_rating %> stars rating </h6>
+          <p> ---||--- </p>
       <% end %>
     </ul>
   </div>
@@ -34,6 +36,7 @@
       <% @entrees.each do |recipe| %>
           <h6> <%= link_to recipe.name, category_recipe_path(recipe.category, recipe) %>  </h6>
           <h6> <%= recipe.converted_rating %> stars rating </h6>
+          <p> ---||--- </p>
       <% end %>
     </ul>
   </div>
@@ -44,6 +47,7 @@
       <% @desserts.each do |recipe| %>
           <h6> <%= link_to recipe.name, category_recipe_path(recipe.category, recipe) %>  </h6>
           <h6> <%= recipe.converted_rating %> stars rating </h6>
+          <p> ---||--- </p>
       <% end %>
     </ul>
   </div>

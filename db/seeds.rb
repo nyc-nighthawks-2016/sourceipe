@@ -44,11 +44,12 @@ difficulty = ["Beginner", "Intermediate", "Advanced"]
 categories.each do |category|
   10.times do
     author = users.sample.first_name
+    directions = Faker::Hipster.paragraphs(5)
     Recipe.create({
       name: "#{author}'s delicious #{Faker::Beer.name} Recipe",
       difficulty: difficulty.sample,
       prep_time: prep_time.sample,
-      directions: Faker::Hipster.paragraphs(5),
+      directions: directions,
       author: author,
       user: users.sample,
       category: category
