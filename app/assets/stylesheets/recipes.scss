@@ -5,13 +5,13 @@
 #main-recipe-content {
   width: 35%;
   position: inline-block;
-  float: left;
-  padding-bottom: 50px;
+  padding: 1.85rem;
 }
 
 #directions-content {
-  margin-top: 132px;
-  width: 55%;
+  vertical-align: top;
+  font-family: 'Raleway';
+  width: 50%;
   position: inline-block;
   float: right;
   font-size: 1.0em;
@@ -39,4 +39,3 @@
   width: 50%;
   display: inline-block;
 }
-

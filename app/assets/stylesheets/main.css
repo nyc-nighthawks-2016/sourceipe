@@ -5,6 +5,11 @@
 
 body {
 	font-family: 'Raleway';
+	background-image: url("https://static.pexels.com/photos/3329/food-kitchen-cutting-board-cooking.jpg");
+	background-size: contain;
+	background-attachment: fixed;
+	background-size: 100%;
+
 }
 
 .wrapper {
@@ -28,7 +33,7 @@ body {
 }
 
 h1,h2, h3, h4, h5, h6, p, ul, li {
-	color: #424652;
+	color: white;
 }
 
 h1 {
@@ -36,12 +41,12 @@ h1 {
 }
 
 h2 {
-	font-size: 2rem;
+	font-size: 2.5rem;
 }
 
 h3 {
 	font-size: 1.35rem;
-	font-weight: 400;
+	font-weight: bold;
 	margin-bottom: .5em;
 }
 
@@ -83,16 +88,16 @@ hr {
 }
 
 .name {
-		font-weight: 700;
-		font-size: .8em;
-		letter-spacing: 4px;
-		text-transform: uppercase;
-		border: 2px solid #E9E9E9;
-		padding: 1rem;
-		text-decoration: none;
-		color: #424652;
-		float: left;
-		margin: 0px 4px 0px 4px;
+	font-weight: 700;
+	font-size: 1.3em;
+	letter-spacing: 4px;
+	text-transform: uppercase;
+	border: 2px solid #E9E9E9;
+	padding: 1.6rem;
+	text-decoration: none;
+	color: white;
+	float: left;
+	margin: 0px 4px 0px 4px;
 }
 
 nav {
@@ -100,14 +105,22 @@ nav {
 	padding-top: 1.5rem;
 }
 
+a {
+	color: white;
+	text-decoration: underline;;
+	margin: 0 1rem;
+	font-size: 1rem;
+}
+
 .home_content-app{
 	display: inline-block;
+	vertical-align: top;
 	border: 2px #E9E9E9 solid;
 	width: 30%;
 	height: 30%;
 	text-align: center;
 	text-transform: uppercase;
-	font-size: 1.1rem;
+	font-size: 3.1rem;
 	margin: 10px 10px 10px 10px;
 	padding-right: 35px;
 
@@ -115,24 +128,26 @@ nav {
 
 .home_content-salad{
 	display: inline-block;
+	vertical-align: top;
 	border: 2px #E9E9E9 solid;
 	width: 30%;
 	height: 30%;
 	text-align: center;
 	text-transform: uppercase;
-	font-size: 1.1rem;
+	font-size: 3.1rem;
 	margin: 10px 10px 10px 10px;
 	padding-right: 35px;
 }
 
 .home_content-entree{
 	display: inline-block;
+	vertical-align: top;
 	border: 2px #E9E9E9 solid;
 	width: 30%;
 	height: 30%;
 	text-align: center;
 	text-transform: uppercase;
-	font-size: 1.1rem;
+	font-size: 3.1rem;
 	margin: 10px 10px 10px 10px;
 	padding-right: 35px;
 }
@@ -144,24 +159,25 @@ nav {
 	height: 30%;
 	text-align: center;
 	text-transform: uppercase;
-	font-size: 1.1rem;
+	font-size: 3.1rem;
 	margin: 10px 10px 10px 10px;
 	padding-right: 35px;
 }
 
+
 #form {
 	text-align: center;
 	padding: 2em, 0;
+	color: white;
 }
 
 .skinny_wrapper {
-	width: 80%;
-	max-width: 760px;
+	width: 70%;
 	margin: 0 auto;
 }
 
 #recipe_wrapper {
-	padding: 3em 0;
+	padding: 4em 0;
 }
 
 .recipe{
@@ -171,6 +187,7 @@ nav {
 	margin-bottom: 0;
 	font-size: 2em;
 	text-transform: uppercase;
+	color: white;
 }
 
 .recipe:hr {
@@ -180,7 +197,7 @@ nav {
 
 .recipe:a{
 	text-decoration: none;
-	color: #424652;
+	color: white;
 }
 
 #recipe_show_content:header{
@@ -197,7 +214,7 @@ nav {
 
 .posted_by{
 	font-size: .9em;
-	color: #9a9da4;
+	color: white;
 	margin: 0;
 }
 
@@ -205,4 +222,19 @@ nav {
 	font-size: 1.6rem;
 	text-transform: uppercase;
 	text-align: left
+}
+
+label {
+	color: white;
+}
+
+td {
+
+	color: white;
+}
+
+div {
+	background: rgba(54, 25, 25, .29);
+
+
 }
