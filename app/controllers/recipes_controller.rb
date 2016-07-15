@@ -12,7 +12,11 @@ class RecipesController < ApplicationController
   def show
     @recipe = Recipe.find(params[:id])
     @component = Component.new
-    @rating = Rating.new
+    if !Rating.find_by(user: current_user, recipe: @recipe)
+      @rating = current_user.ratings.new
+    else
+      @rating = Rating.find_by(user: current_user, recipe: @recipe)
+    end
   end
 
   def create
@@ -37,7 +41,7 @@ class RecipesController < ApplicationController
     @component = @recipe.components.new
 
   end
-  
+
   def destroy
     current_user
     @recipe = Recipe.find_by_id(params[:id])
