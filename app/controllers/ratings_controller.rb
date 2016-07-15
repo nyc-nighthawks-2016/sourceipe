@@ -6,17 +6,15 @@ class RatingsController < ApplicationController
 
   def create
     @rating = Rating.new(rating_params)
-
     if @rating.save
       redirect_to category_recipe_path(@rating.recipe.category, @rating.recipe)
+    else
+      redirect_to category_recipe_path(@rating.recipe.category, @rating.recipe)
     end
-
   end
 
   private
-
     def rating_params
       params.require(:rating).permit(:value, :recipe_id, :user_id)
     end
-
 end
