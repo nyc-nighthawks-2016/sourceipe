@@ -10,7 +10,8 @@
   </p>
   <p>
     <%= f.label :measurement %><br>
-    <%= f.text_field :measurement %>
+    <%= f.select("measurement", @measurements.map { |measurement| [ measurement.unit, measurement.unit]})
+ %>
   </p>
   <p>
     <%= f.hidden_field(:recipe_id, value: @recipe.id) %>
