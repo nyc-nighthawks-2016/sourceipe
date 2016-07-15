@@ -1,15 +1,14 @@
-<h1> <%= @recipes.first.category.name %></h1>
+<div class="wrapper wrapper_padding cleafix">
+  <h1> <%= @recipes.first.category.name %></h1>
 
-<% @recipes.each do |recipe| %>
-  <div id="category_show_content" class="skinny_wrapper wrapper_padding">
-   <header>
-     <p class="posted_by">posted by <a class="posted_by" href="/users/<%= recipe.user.id %>"><%= recipe.user.username %></a></p>
-     <h1>
-      <%= link_to recipe.name, category_recipe_path(recipe.category, recipe), id: 'index_title'%>
-
-
-    </h1>
-     <hr>
-    </header>
-  </div>
-<% end %>
+  <% @recipes.each do |recipe| %>
+    <div id="category_show_content" class="skinny_wrapper wrapper_padding">
+     <header>
+      <h1>
+        <%= link_to recipe.name, category_recipe_path(recipe.category, recipe), id: 'index_title'%>
+      </h1>
+      <p class="posted_by">posted by <a class="posted_by" href="/users/<%= recipe.user.id %>"><%= recipe.user.username %></a></p>
+      </header>
+    </div>
+  <% end %>
+</div>

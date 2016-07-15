@@ -7,16 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-    <header id="main_navigation" class="clearfix">
-
-
+  <header id="main_navigation" class="clearfix">
     <nav>
       <%= link_to "Sourceipe", root_path, :class => "name" %>
       <%= link_to "Categories", categories_path, :class => "name" %>
       <%= link_to "Recipes", recipes_path, :class => "name" %>
       <% if @current_user %>
-        <%= link_to 'new recipe', new_recipe_path, :class => "name" %>
+        <%= link_to 'New recipe', new_recipe_path, :class => "name" %>
         <%= link_to @current_user.username, user_path(@current_user), :class => "name"%>
         <%= link_to "Logout", '/logout', method: :delete, :class => "name"%>
       <% else %>
@@ -24,7 +21,7 @@
         <%= link_to "Register", new_user_path, :class => "name" %>
       <% end %>
     </nav>
-    </header>
+  </header>
 
 <%= yield %>
 
