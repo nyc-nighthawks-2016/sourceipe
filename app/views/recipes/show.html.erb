@@ -7,13 +7,11 @@
   <% if @current_user %>
   <%= render 'rating_form' %>
   <% end %>
-
   <hr>
   <div id="content">
     <p>Difficulty: <%= @recipe.difficulty %></p>
     <p>Ingredients: </p>
       <%= render 'recipe_component' %>
-
     <p>Category: <%= link_to @recipe.category.name, category_path(@recipe.category)%></p>
     <p>Prep Time: <%= @recipe.prep_time %></p>
     <p>Directions: <%= @recipe.directions %></p>
