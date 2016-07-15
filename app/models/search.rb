@@ -9,7 +9,6 @@ class Search
     @ingredients = []
     recipes_results = PgSearch.multisearch(args).where(:searchable_type => "Recipe")
     ingredients_results = PgSearch.multisearch(args).where(:searchable_type => "Ingredient")
-
     recipes_results.each do |recipe|
       @recipes << Recipe.find_by(id: recipe.searchable_id)
     end
@@ -17,9 +16,10 @@ class Search
     ingredients_results.each do |ingredient|
       @ingredients << Ingredient.find_by(id: ingredient.searchable_id)
     end
-
-    self.recipe_single_term
-    self.ingredient_single_term
+    if @search_terms.length > 1
+      self.recipe_single_term
+      self.ingredient_single_term
+    end
   end
 
   def recipe_single_term
