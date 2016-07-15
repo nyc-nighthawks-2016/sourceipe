@@ -1,50 +1,49 @@
-<div>
+<div class="search-form">
   <%= form_tag("/search", method: "get") do %>
     <%= label_tag(:search, "Search for:") %>
-    <%= text_field_tag(:search) %>
+    <%= text_field_tag(:search)%>
     <%= submit_tag("Search") %>
   <% end %>
 </div>
 
-<div class="wrapper wrapper_padding cleafix">
+<div class="wrapper wrapper_padding clearfix">
 
-  <div class="col-2 home_content">
+  <div class="home_content-app">
     <h2><%= link_to 'Appetizers', category_path(@appetizers.first.category)%></h2>
-    <hr>
     <ul>
       <% @appetizers.each do |recipe| %>
-          <li> <%= link_to recipe.name, category_recipe_path(recipe.category, recipe) %>  </li>
-          <li> <%= recipe.weighted_ratings %>  </li>
+          <h6> <%= link_to recipe.name, category_recipe_path(recipe.category, recipe) %>  </h6>
+          <h6> <%= recipe.weighted_ratings %> stars rating </h6>
       <% end %>
     </ul>
   </div>
 
-  <div class="col-2 home_content">
+  <div class="home_content-salad">
     <h2><%= link_to 'Salads', category_path(@salads.first.category)%></h2>
-    <hr>
     <ul>
       <% @salads.each do |recipe| %>
-          <li> <%= link_to recipe.name, category_recipe_path(recipe.category, recipe) %>  </li>
+          <h6> <%= link_to recipe.name, category_recipe_path(recipe.category, recipe) %>  </h6>
+          <h6> <%= recipe.weighted_ratings %> stars rating </h6>
       <% end %>
     </ul>
   </div>
 
-  <div class="col-3 home_content">
+  <div class="home_content-entree">
     <h2><%= link_to 'Entrees', category_path(@entrees.first.category)%></h2>
-    <hr>
     <ul>
       <% @entrees.each do |recipe| %>
-          <li> <%= link_to recipe.name, category_recipe_path(recipe.category, recipe) %>  </li>
+          <h6> <%= link_to recipe.name, category_recipe_path(recipe.category, recipe) %>  </h6>
+          <h6> <%= recipe.weighted_ratings %> stars rating </h6>
       <% end %>
     </ul>
   </div>
 
-  <div class="col-3 home_content">
+  <div class="home_content-dessert">
     <h2><%= link_to 'Desserts', category_path(@desserts.first.category)%></h2>
-    <hr>
     <ul>
       <% @desserts.each do |recipe| %>
-          <li> <%= link_to recipe.name, category_recipe_path(recipe.category, recipe) %>  </li>
+          <h6> <%= link_to recipe.name, category_recipe_path(recipe.category, recipe) %>  </h6>
+          <h6> <%= recipe.weighted_ratings %> stars rating </h6>
       <% end %>
     </ul>
   </div>

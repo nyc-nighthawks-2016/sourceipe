@@ -2,24 +2,35 @@
 
   <header>
    <h1><%= @recipe.name %></h1>
-   <p>Posted by: <%= link_to @recipe.user.username, user_path(@recipe.user.id), class: 'posted_by' %></p>
+   <p>Posted <%= time_since_creation(@recipe)%> by: </p>
+   <p id="poster"><%= link_to @recipe.user.username, user_path(@recipe.user.id), class: 'posted_by' %></p><br>
+   <p>Recipe Author: </p>
+   <p id="author"><%= @recipe.author %></p><br>
+   <p>Posted to the <%= link_to @recipe.category.name, category_path(@recipe.category)%> Category</p>
   </header>
-  <% if !@rating.value %>
-  <%= render 'rating_form' %>
-  <% else %>
-  <%= render 'rating_form' %>
+  <% if @current_user %>
+    <% if @rating.value %>
+    <%= render 'rating_form' %>
+    <% else %>
+    <%= render 'rating_form' %>
+    <% end %>
   <% end %>
-  <hr>
-  <div id="content">
-    <p>Difficulty: <%= @recipe.difficulty %></p>
+  <h6> Currently Rated at <%= @recipe.weighted_ratings %> stars</h6>
+
+  <div id="main-recipe-content">
+    <p>Difficulty: </p>
+    <p id="difficulty"><%= @recipe.difficulty %></p><br>
+    <p>Prep Time: </p>
+    <p id="prep-time"><%= @recipe.prep_time %> minutes</p><br>
     <p>Ingredients: </p>
-      <%= render 'recipe_component' %>
-    <p>Category: <%= link_to @recipe.category.name, category_path(@recipe.category)%></p>
-    <p>Prep Time: <%= @recipe.prep_time %></p>
-    <p>Directions: <%= @recipe.directions %></p>
-    <p>Recipe Author: <%= @recipe.author %></p>
+    <%= render 'recipe_component' %>
   </div>
-  <hr>
+  <div id="directions-content">
+    <p>Directions: </p>
+    <p id="recipe-directions"><%= @recipe.directions[1..-2] %></p>
+  </div>
+
+
   <% if @current_user %>
     <%= link_to "Edit", edit_category_recipe_path(@category, @recipe) %>
   <% end %>

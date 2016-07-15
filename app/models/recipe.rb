@@ -31,8 +31,8 @@ class Recipe < ActiveRecord::Base
     v = self.ratings.length
     m = vote_minimum
     c = self.category.vote_mean
-    return (v / (v + m) ) * self.average_rating + (m / (v + m) ) * c
-
+    weighted = (v / (v + m) ) * self.average_rating + (m / (v + m) ) * c
+    return ((weighted * 5) / 100).round(2)
   end
 
     def vote_minimum

@@ -2,14 +2,31 @@
 	box-sizing: border-box;
 }
 
+.search-form {
+	text-align: center;
+	border: 2px #E9E9E9 solid;
+	width: 25%;
+	padding: 15px 5px 15px 5px;
+	margin: 0 auto;
+	margin-top: 20px;
+}
+
+.search {
+
+}
 
 body {
-	font-family: 'Raleway', sans-seref;
+	font-weight: 700;
+	font-size: .8em;
+	letter-spacing: 4px;
+	font-family: 'Raleway';
+	text-transform: uppercase;
 }
 
 .wrapper {
 	width: 90%;
 	margin: 0 auto;
+	text-align: center;
 }
 
 .wrapper_padding {
@@ -43,7 +60,6 @@ h3 {
 	font-size: 1.35rem;
 	font-weight: 400;
 	margin-bottom: .5em;
-
 }
 
 h4 {

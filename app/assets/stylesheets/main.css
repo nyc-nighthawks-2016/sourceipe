@@ -4,18 +4,18 @@
 
 
 body {
-	font-family: 'Raleway', sans-seref;
+	font-family: 'Raleway';
 }
 
 .wrapper {
-	width: 90%;
+	width: 100%;
 	margin: 0 auto;
+	text-align: center;
 }
 
 .wrapper_padding {
-	padding: 4rem 0;
+	padding-top: 4rem;
 }
-
 
 .clearfix:before,
 .clearfix:after {
@@ -43,7 +43,6 @@ h3 {
 	font-size: 1.35rem;
 	font-weight: 400;
 	margin-bottom: .5em;
-
 }
 
 h4 {
@@ -64,7 +63,7 @@ p, li {
 }
 
 p, ul, ol {
-	margin: 0 0 1.6em 0;
+	margin: 0 0 0 0;
 }
 
 hr {
@@ -78,7 +77,6 @@ hr {
 
 
 #main_navigation{
-
 	padding: 2.5em 5%;
 	border-bottom: 1px solid #E9E9E9;
 
@@ -94,37 +92,62 @@ hr {
 		text-decoration: none;
 		color: #424652;
 		float: left;
+		margin: 0px 4px 0px 4px;
 }
 
 nav {
 	float: right;
 	padding-top: 1.5rem;
-
 }
 
-.col-2, col-3{
-	width: 27.5%;
-	padding: 0 2.5%;
-}
-
-.col-2{
-  float:  left;
-}
-
-.col-3{
-  float: right;
-}
-
-.home_content:h2 {
-	font-size: 1.1rem;
+.home_content-app{
+	display: inline-block;
+	border: 2px #E9E9E9 solid;
+	width: 30%;
+	height: 30%;
+	text-align: center;
 	text-transform: uppercase;
+	font-size: 1.1rem;
+	margin: 10px 10px 10px 10px;
+	padding-right: 35px;
 
 }
 
-.home_content:p{
-	margin: 0 0 .75 0;
+.home_content-salad{
+	display: inline-block;
+	border: 2px #E9E9E9 solid;
+	width: 30%;
+	height: 30%;
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 1.1rem;
+	margin: 10px 10px 10px 10px;
+	padding-right: 35px;
 }
 
+.home_content-entree{
+	display: inline-block;
+	border: 2px #E9E9E9 solid;
+	width: 30%;
+	height: 30%;
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 1.1rem;
+	margin: 10px 10px 10px 10px;
+	padding-right: 35px;
+}
+
+.home_content-dessert{
+	display: inline-block;
+	border: 2px #E9E9E9 solid;
+	width: 30%;
+	height: 30%;
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 1.1rem;
+	margin: 10px 10px 10px 10px;
+	padding-right: 35px;
+}
 
 #form {
 	text-align: center;
@@ -182,5 +205,4 @@ nav {
 	font-size: 1.6rem;
 	text-transform: uppercase;
 	text-align: left
-
 }

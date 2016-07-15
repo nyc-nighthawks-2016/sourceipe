@@ -1,15 +1,25 @@
 <div id="recipes-content">
-  <h1>Recently Created Recipes</h1>
+  <h1 id="recently-created-recipes">Recently Created Recipes</h1>
 
   <% @recipes.each do |recipe| %>
     <div class="all-recipes">
-      <p>Recipe: <%= link_to recipe.name, category_recipe_path(recipe.category, recipe), class: 'index_title'%></p>
-      <p>Posted by: <%= link_to recipe.user.username, user_path(recipe.user.id), class: 'posted_by' %></p>
-      <p>Difficulty: <%=recipe.difficulty%></p>
-      <p>Prep Time: <%=recipe.prep_time%></p>
-      <p>Directions: <%=recipe.directions%></p>
-      <p>Recipe Author: <%=recipe.author%>
+      <p>Recipe: <%= link_to recipe.name, category_recipe_path(recipe.category, recipe), class: 'index_title'%></p><br>
+      <aside id="main-recipe-info"
+        <p>Posted <%= time_since_creation(recipe)%> by: </p>
+        <p id="poster"><%= link_to recipe.user.username, user_path(recipe.user.id), class: 'posted_by' %></p><br>
+        <p>Recipe Author: </p>
+        <p id="author"><%=recipe.author%></p><br>
+        <p>Difficulty: </p>
+        <p id="difficulty"><%=recipe.difficulty%></p><br>
+        <p>Prep Time: </p>
+        <p id="prep-time"><%=recipe.prep_time%></p><br>
+      </aside>
+
+      <aside id="directions">
+        <p>Directions: </p><br>
+        <p id="recipe-directions"><%=recipe.directions[1..-20]%>...</p>
+      </aside>
     </div>
-    <span> -- || -- </span><br>
+    <br><br>
   <% end %>
 </div>
