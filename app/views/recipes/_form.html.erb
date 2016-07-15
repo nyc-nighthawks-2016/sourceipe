@@ -1,9 +1,9 @@
-<%= form_for [@category, @recipe] do |f|%>
+<%= form_for [@category, @recipe], :html => {:id => "form"} do |f|%>
 <% if flash[:notice] %>
   <%= flash[:notice] %>
 <% else %>
   <% if @recipe.errors.any? %>
-    <div id="error_explanation">
+    <p id="error_explanation">
       <h2>
         <%= pluralize(@recipe.errors.count, "error") %> prohibited
         this recipe from being saved:
@@ -13,7 +13,7 @@
           <li><%= msg %></li>
         <% end %>
       </ul>
-    </div>
+    </p>
   <% end %>
 <% end %>
 
@@ -33,7 +33,7 @@
   </p>
 
   <p>
-    <%= f.label :prep_time %><br>
+    <%= f.label :prep_time %> (minutes)<br>
     <%= f.number_field :prep_time, min: 0 %>
   </p>
 

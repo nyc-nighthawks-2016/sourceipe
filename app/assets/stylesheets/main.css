@@ -229,12 +229,13 @@ label {
 }
 
 td {
-
 	color: white;
 }
 
 div {
 	background: rgba(54, 25, 25, .29);
+}
 
-
+#styled-heading {
+	text-align: center;
 }
