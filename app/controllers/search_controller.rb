@@ -4,7 +4,6 @@ class SearchController < ApplicationController
     search = Search.new(params[:search])
     @recipes = search.recipes
     @ingredients = search.ingredients
-
     render 'results'
   end
 
