@@ -1,0 +1,12 @@
+<strong>Choose a rating</strong><br>
+  <span class="star-rating">
+    <form id="rating-form" method="post" action="/ratings">
+      <input type="submit" name="rating[value]" value="1"><i></i>
+      <input type="submit" name="rating[value]" value="2"><i></i>
+      <input type="submit" name="rating[value]" value="3"><i></i>
+      <input type="submit" name="rating[value]" value="4"><i></i>
+      <input type="submit" name="rating[value]" value="5"><i></i>
+      <input type="hidden" name="rating[recipe_id]" value="<%=@recipe.id%>">
+      <input type="hidden" name="rating[user_id]" value="<%=@current_user.id%>">
+    </form>
+  </span>

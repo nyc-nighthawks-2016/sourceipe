@@ -4,7 +4,9 @@
    <h1><%= @recipe.name %></h1>
    <p>Posted by: <%= link_to @recipe.user.username, user_path(@recipe.user.id), class: 'posted_by' %></p>
   </header>
-  <% if @current_user %>
+  <% if !@rating.value %>
+  <%= render 'rating_form' %>
+  <% else %>
   <%= render 'rating_form' %>
   <% end %>
   <hr>
